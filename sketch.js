@@ -33,7 +33,7 @@ function setup() {
 	engine = Engine.create();
 	world = engine.world;
 
-	packageBody = Bodies.circle(width/2 , 200 , 5 , {restitution:1, isStatic:false});
+	packageBody = Bodies.circle(width/2 , 200 , 5 , {restitution:1, isStatic:true});
 	World.add(world, packageBody);
 
 	
@@ -64,6 +64,8 @@ function keyPressed() {
 	
 	packageSprite.x = packageBody.position.x;
 	packageSprite.y = packageBody.position.y;
+	Body.setStatic(packageBody,false);
+ 
 	
   }
 }
