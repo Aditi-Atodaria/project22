@@ -17,7 +17,7 @@ function setup() {
 	rectMode(CENTER);
 	
 
-	packageSprite=createSprite(width/2, 300, 10,10);
+	packageSprite=createSprite(width/2, 200, 10,10);
 	packageSprite.addImage(packageIMG);
 	packageSprite.scale=0.2
 
@@ -33,7 +33,7 @@ function setup() {
 	engine = Engine.create();
 	world = engine.world;
 
-	packageBody = Bodies.circle(width/2 , 200 , 5 , {restitution:1, isStatic:true});
+	packageBody = Bodies.circle(width/2 , 200 , 5 , {restitution:0.3, isStatic:true});
 	World.add(world, packageBody);
 
 	
