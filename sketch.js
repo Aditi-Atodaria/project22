@@ -29,17 +29,16 @@ function setup() {
 	groundSprite.shapeColor=color(255);
 	groundSprite.visible=false;
 
-
+	
 	engine = Engine.create();
 	world = engine.world;
 
-	packageBody = Bodies.circle(width/2 , 200 , 5 , {restitution:0.3, isStatic:true});
+	packageBody = Bodies.circle(width/2 , 300 , 5 , {restitution:0.3, isStatic:true});
 	World.add(world, packageBody);
 
-	
 
 	//Create a Ground
-	ground = Bodies.rectangle(width/2, 650, width, 10 , {isStatic:true} );
+	ground = Bodies.rectangle(width/2, 680, width, 10 , {isStatic:true} );
  	World.add(world, ground);
 
 
@@ -51,8 +50,10 @@ function setup() {
 function draw() {
   rectMode(CENTER);
   background(bgIMG);
-  //packageSprite.x= packageBody.position.x 
-  //packageSprite.y= packageBody.position.y 
+  Engine.update(engine);
+ /* packageSprite.x= packageBody.position.x 
+  packageSprite.y= packageBody.position.y */
+  
   drawSprites();
 
   keyPressed();
@@ -61,14 +62,17 @@ function draw() {
 
 function keyPressed() {
  if (keyCode === DOWN_ARROW) {
+	//packageBody = Bodies.circle(width/2 , 200 , 5 , {restitution:1, isStatic:false});
+	//World.add(world, packageBody);
 	
 	packageSprite.x = packageBody.position.x;
 	packageSprite.y = packageBody.position.y;
 	Body.setStatic(packageBody,false);
- 
+
+	/*packageBody.position.x = helicopterSprite.x;
+	packageBody.position.y = helicopterSprite.y;*/
+	
+
 	
   }
 }
-
-
-
